@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ffseries</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <header class="row">
+      <div class="col-3">
+        <%= link_to root_path, class: 'logo' do %>
+          <br />
+          Final Fantasy
+          <br />
+          1-9 
+          <br />
+          And
+          <br />
+          Tactics
+      </div>
+        <% end %>
+     </div>
+      <div class="col-4 slogan">
+        Writing a review for these Final Fantasy games in the series and leaving a score out of a 100. Feel free to post your own summary and which series you are reviewing.
+      </div>
+      <div class="col-5 links">
+        <%= link_to 'Post', new_review_path %>
+        <%= link_to 'Overview', overview_path %>
+      </div>
+    </header>
+
+
+    <hr />
+    <br class="clear" />
+
+    <div class="container">
+      <% if flash[:error].present? %>
+    <div class="col-10 offset-1 alert alert-danger">
+      <%= flash[:error].html_safe %>
+    </div>
+  <% end %>
+    <%= yield %>
+  </div>
+
+  <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+        <%= link_to "Final Fantasy", root_path, class: 'next-quote' %>
+      </div>
+      <div class="col-6 footer-blurb">
+         <a ></a><br />
+      </div>
+          <p class="text-muted"></p>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
